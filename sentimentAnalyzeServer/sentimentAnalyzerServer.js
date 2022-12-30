@@ -34,9 +34,9 @@ function getNLUInstance() {
 
 
 //The default endpoint for the webserver
-app.get("/",(req,res)=>{
-    res.render('index.html');
-  });
+app.get("/", (req,res) => {
+  res.render('index.html');
+});
 
 //The endpoint for the webserver ending with /url/emotion
 app.get("/url/emotion", (req,res) => {
@@ -110,7 +110,6 @@ app.get("/text/emotion", (req,res) => {
   naturalLanguageUnderstanding.analyze(analyzeParams)
   .then(analysisResults => {
       //Retrieve the emotion and return it as a formatted string
-
       return res.send(analysisResults.result.keywords[0].emotion,null,2);
   })
   .catch(err => {
